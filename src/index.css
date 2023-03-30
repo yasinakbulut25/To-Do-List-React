@@ -1,0 +1,247 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  margin: 0;
+  font-family: "Poppins", sans-serif;
+}
+
+.app-container {
+  position: relative;
+  max-width: 100%;
+  min-height: 100vh;
+  padding: 2rem 1rem;
+  background-color: #f3f4f7;
+}
+
+.form-area {
+  position: relative;
+  width: 100%;
+  display: grid;
+  place-items: center;
+  margin-bottom: 2rem;
+}
+.form-area form {
+  position: relative;
+  width: 450px;
+  display: flex;
+  flex-direction: column;
+  padding: 1rem 1.5rem;
+  background-color: #fff;
+  box-shadow: 0px 2px 4px -2px #1018280f, 0px 4px 8px -2px #1018281a;
+  border-radius: 1rem;
+  transition: all 0.3s;
+}
+.form-area.edit {
+  position: fixed;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.371);
+  top: 0;
+  left: 0;
+  transition: all 0.3s;
+  z-index: 999;
+}
+.form-area.edit.hidden {
+  opacity: 0;
+  pointer-events: none;
+}
+.form-area.edit.hidden form {
+  transform: scale(0.5);
+}
+.form-area h3 {
+  font-weight: 600;
+  color: #728ddd;
+  margin: 0 0 0.5rem 0;
+}
+.form-area label,
+.form-area input {
+  display: block;
+  margin: 0.4rem 0;
+  font-size: 0.85rem;
+}
+.form-area label {
+  font-weight: 500;
+}
+.form-area input,
+.form-area textarea {
+  font-family: "Poppins", sans-serif;
+  position: relative;
+  padding: 0.5rem 0.75rem;
+  border: 2px solid #f3f4f7;
+  background-color: #f3f4f7;
+  outline: none;
+  border-radius: 0.25rem;
+  font-size: 0.9rem;
+  resize: none;
+}
+.form-area textarea::placeholder,
+.form-area input::placeholder {
+  color: #949fae;
+}
+.form-area button {
+  margin: 1rem 0 0.5rem 0;
+  width: 100%;
+  text-align: center;
+  padding: 0.65rem;
+  font-size: 0.85rem;
+  border-radius: 0.5rem;
+  background-color: #728ddd;
+  color: #fff;
+  cursor: pointer;
+  border: none;
+  transition: all 0.3s;
+}
+.form-area button:hover {
+  background-color: #5369ab;
+}
+
+.filter {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+.filter-btn {
+  padding: 0.65rem 1.25rem;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  background-color: #fff;
+  box-shadow: 0px 4px 8px -2px #51596a1a;
+  outline: none;
+  border: none;
+  color: #728ddd;
+}
+.filter-btn.active {
+  background-color: #728ddd;
+  color: #fff;
+}
+
+.tasks .title {
+  text-align: center;
+  margin-bottom: 2rem;
+  text-transform: capitalize;
+}
+.task-list {
+  display: flex;
+  flex-direction: row;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+.task-box {
+  position: relative;
+  width: 300px;
+  height: max-content;
+  display: flex;
+  flex-direction: column;
+  padding: 0.75rem 1.5rem 1.25rem 1.5rem;
+  border-top: 4px solid transparent;
+  background-color: #fff;
+  box-shadow: 0px 4px 8px -2px #1018281a;
+  border-radius: 1rem;
+  overflow: hidden;
+  word-wrap: break-word;
+}
+.task-box.completed {
+  border-color: #728ddd;
+}
+.task-completed {
+  position: absolute;
+  right: 0.5rem;
+  top: 0.5rem;
+  width: 20px;
+  height: 20px;
+  border: 1px solid #b5bcc5;
+  color: #b5bcc5;
+  background-color: transparent;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+}
+.task-completed i {
+  position: relative;
+  top: -2px;
+}
+.task-completed.completed {
+  border-color: #728ddd;
+  background-color: rgba(208, 197, 242, 0.15);
+  color: #728ddd;
+}
+.task-id {
+  color: #b5bcc5;
+  font-weight: 500;
+  font-size: 0.7rem;
+  margin-bottom: 0.75rem;
+}
+.task-id span {
+  color: #728ddd;
+}
+.task-label {
+  color: #728ddd;
+  font-weight: 600;
+  font-size: 0.85rem;
+}
+.task-text {
+  color: #23262c;
+  font-size: 0.85rem;
+  margin: 0 0 0.75rem 0;
+  max-height: 150px;
+  overflow-y: scroll;
+}
+.task-text::-webkit-scrollbar {
+  width: 3px;
+}
+.task-text::-webkit-scrollbar-track {
+  background: transparent;
+}
+.task-text::-webkit-scrollbar-thumb {
+  background: #f3f4f7;
+}
+.task-text::-webkit-scrollbar-thumb:hover {
+  background: #b5bcc5;
+}
+.task-buttons {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0.5rem;
+}
+.task-buttons button {
+  outline: none;
+  cursor: pointer;
+  font-size: 0.7rem;
+  padding: 0.35rem 0.25rem;
+  text-align: center;
+  border-radius: 0.25rem;
+}
+.delete-btn {
+  background-color: #fef2f2;
+  color: #f87171;
+  border: 1px solid #f87171;
+}
+.edit-btn {
+  background-color: #edfed1;
+  color: #64b200;
+  border: 1px solid #64b200;
+}
+.empty-message {
+  margin: 0 auto;
+  border-radius: 0.5rem;
+  width: max-content;
+  padding: 1rem 1.5rem;
+  text-align: center;
+  background-color: #fef2f2;
+  color: #f87171;
+  border: 1px solid #f87171;
+}
+@media screen and (max-width: 500px) {
+  .form-area form {
+    width: 100%;
+  }
+}
