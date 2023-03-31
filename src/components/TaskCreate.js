@@ -10,9 +10,14 @@ function TaskCreate({ task }) {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    createTask(title, taskDetail);
-    setTitle("");
-    setTaskDetail("");
+     if (title && taskDetail) {
+      createTask(title, taskDetail);
+      setTitle("");
+      setTaskDetail("");
+      setErrorMessage(false);
+    } else {
+      setErrorMessage(true);
+    }
   };
 
   const formClassName = "form-area";
