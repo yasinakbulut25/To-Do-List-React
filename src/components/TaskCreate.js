@@ -7,10 +7,11 @@ function TaskCreate({ task }) {
 
   const [title, setTitle] = useState(task ? task.title : "");
   const [taskDetail, setTaskDetail] = useState(task ? task.taskDetail : "");
+  const [errorMessage, setErrorMessage] = useState(false);
 
   const handleSubmit = (e) => {
     e.preventDefault();
-     if (title && taskDetail) {
+    if (title && taskDetail) {
       createTask(title, taskDetail);
       setTitle("");
       setTaskDetail("");
@@ -25,6 +26,9 @@ function TaskCreate({ task }) {
     <div className={formClassName}>
       <form>
         <h3>Please Add a Task</h3>
+        {
+          errorMessage && <span className="empty-message fields">Please fill in all fields </span>
+        }  
         <label>Task Title</label>
         <input
           type="text"
